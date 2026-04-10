@@ -1,8 +1,8 @@
 What if you wanted to make a wheel game for wheel jam? using Love2D?
 
-###Todo:
-- Add way to reset wheel
-- Change selection indicator to image
+### Todo:
+- Add function to reset wheel
+- Change selection indicator to image instead of vector circle
 - add alternate wheel draw images if selected (instead of just darkening existing slices
 - Add slice labels
 
