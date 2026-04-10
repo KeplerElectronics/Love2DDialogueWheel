@@ -15,7 +15,8 @@ What if you wanted to make a wheel game for wheel jam? using Love2D?
 ### Set Slice Image
 - sets each slice to an image
 - number 1-4 allows you to set each slice to a different image
-- Slices should be designed such that the arc is from bottom left corner to top right, with point in top left (so it matches Love's image origin)
+- Slices should be designed such that the arc is from bottom left corner to top right, with point in top left
+
 `wheel.setSliceImg(sliceNumber,"Path/To/Image.png")`
 
 ### Set Slice Result
