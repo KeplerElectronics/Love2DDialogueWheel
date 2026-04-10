@@ -1,4 +1,4 @@
-What if you wanted to make a wheel game for wheel jam?
+What if you wanted to make a wheel game for wheel jam? using Love2D?
 
 ###Todo:
 - Add way to reset wheel
