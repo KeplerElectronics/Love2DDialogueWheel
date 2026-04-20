@@ -16,7 +16,7 @@ function love.load()
     wheel.setSliceResult(3,-1)
     wheel.setSliceResult(4,-10)
 
-    wheel.setPos(500,500)
+    wheel.setPos(300,300)
 end
 
 function love.update(dt)

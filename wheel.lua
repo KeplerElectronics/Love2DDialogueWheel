@@ -8,6 +8,14 @@ wheel={	x,y,sliceRot=pi/4,
 		selectDir=3,
 		selectTar=3,
 
+		textpad=20,
+		textheight=10,
+
+		quads={	"opt1",
+				"opt2",
+				"opt3",
+				"opt4"},
+
 		bg={w,h,rot=0,img},
 		slice={	{w,h,img,res,selected=false},
 				{w,h,img,res,selected=false},
@@ -81,19 +89,31 @@ end
 
 function wheel.draw()
 
-	love.graphics.draw(wheel.bg.img,wheel.x-wheel.bg.w,wheel.y-wheel.bg.h,wheel.rot)
+	love.graphics.draw(wheel.bg.img,wheel.x-wheel.bg.w/2,wheel.y-wheel.bg.h/2,wheel.rot)
 	
 	for i=1,4 do
 		if wheel.slice[i].img~=nil then
 			if wheel.slice[i].selected==true then
 				love.graphics.setColor(love.math.colorFromBytes(30,30,30))
 			end
-			love.graphics.draw(wheel.slice[i].img,wheel.x-wheel.slice[i].w,wheel.y-wheel.slice[i].h,wheel.sliceRot-pi*i/2-pi/2)
+			love.graphics.draw(wheel.slice[i].img,wheel.x-wheel.slice[i].w+wheel.bg.w/2,wheel.y-wheel.slice[i].h+wheel.bg.h/2,wheel.sliceRot-pi*i/2-pi/2)
 			wheel.resDraw()
 		end
 	end
 
-	love.graphics.circle("fill", wheel.x-wheel.bg.w/2+math.cos(wheel.selectDir*pi/2)*200,wheel.y-wheel.bg.h/2+math.sin(wheel.selectDir*pi/2)*200,30)
+	love.graphics.circle("fill", wheel.x+math.cos(wheel.selectDir*pi/2)*200,wheel.y+math.sin(wheel.selectDir*pi/2)*200,30)
+
+	love.graphics.circle("fill", wheel.x,wheel.y,30)
+
+	love.graphics.printf(wheel.quads[1],wheel.x-wheel.bg.w/2,wheel.y-wheel.bg.h/2-wheel.textpad,wheel.bg.w,"center")
+
+	love.graphics.printf(wheel.quads[2],wheel.x-wheel.bg.w/2,wheel.y-wheel.textpad/2,wheel.bg.w+2*wheel.textpad,"right")
+
+	love.graphics.printf(wheel.quads[3],wheel.x-wheel.bg.w/2,wheel.y+wheel.textpad+wheel.bg.h/2-wheel.textheight,wheel.bg.w,"center")
+
+	love.graphics.printf(wheel.quads[4],wheel.x-wheel.bg.w/2-2*wheel.textpad,wheel.y-wheel.textpad/2,wheel.bg.w+2*wheel.textpad,"left")
+
+
 end
 
 function wheel.getSelectedValue()
